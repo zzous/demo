@@ -21,4 +21,15 @@ public class MemberController {
                 ,ResultCodeEnum.getEnum(200).getMessage()
                 ,toDto);
     }
+    @PostMapping("/member/register")
+    public ResponseDto<MemberDto> registerMember(@RequestBody MemberDto.MemberRequestDto req) {
+        // 요청 데이터를 사용하여 새로운 멤버를 등록
+        int id = memberService.registerMember(MemberDto.toEntity(req));
+        MemberDto dto = MemberDto.of(memberService.getMemberById(id));
+        // 성공 응답 생성
+        return ResponseDto.of(
+                String.valueOf(ResultCodeEnum.getEnum(200).getCode()), // 성공 코드
+                ResultCodeEnum.getEnum(200).getMessage(),dto
+        );
+    }
 }

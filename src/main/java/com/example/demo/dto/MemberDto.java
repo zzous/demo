@@ -59,12 +59,40 @@ public class MemberDto {
                 .education(memberEntity.getEducation())
                 .build();
     }
+    public static MemberEntity toEntity(MemberDto.MemberRequestDto memberDto) {
+        return MemberEntity.builder()
+                .id(memberDto.getId())
+                .name(memberDto.getName())
+                .password(memberDto.getPassword())
+                .email(memberDto.getEmail())
+                .phone(memberDto.getPhone())
+                .address(memberDto.getAddress())
+                .city(memberDto.getCity())
+                .state(memberDto.getState())
+                .zipcode(memberDto.getZipcode())
+                .dateOfBirth(memberDto.getDateOfBirth())
+                .gender(memberDto.getGender())
+                .occupation(memberDto.getOccupation())
+                .maritalStatus(memberDto.getMaritalStatus())
+                .education(memberDto.getEducation())
+                .build();
+    }
 
     @Getter
     public static class MemberRequestDto {
         private int id;
         private String name;
+        private String password;
         private String email;
         private String phone;
+        private String address;
+        private String city;
+        private String state;
+        private String zipcode;
+        private String dateOfBirth;
+        private String gender;
+        private String occupation;
+        private String maritalStatus;
+        private String education;
     }
 }

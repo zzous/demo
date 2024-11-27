@@ -2,6 +2,7 @@ package com.example.demo.dto;
 
 import com.example.demo.enumeration.ResultCodeEnum;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 

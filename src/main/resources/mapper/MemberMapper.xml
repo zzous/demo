@@ -4,4 +4,8 @@
     <select id="getMemberById" resultType="com.example.demo.entity.MemberEntity" parameterType="int">
         SELECT * FROM member WHERE id = #{id}
     </select>
+    <insert id="registerMember" useGeneratedKeys="true" keyProperty="id" parameterType="com.example.demo.entity.MemberEntity">
+        insert into member(name, password, email, phone, address, city, state, zipcode, dateOfBirth, gender, occupation, maritalStatus, education)
+            values (#{name}, #{password}, #{email}, #{phone}, #{address}, #{city}, #{state}, #{zipcode}, #{dateOfBirth}, #{gender}, #{occupation}, #{maritalStatus}, #{education})
+    </insert>
 </mapper>

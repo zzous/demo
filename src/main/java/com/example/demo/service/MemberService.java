@@ -13,5 +13,10 @@ public class MemberService {
     public MemberEntity getMemberById(int id){
         return memberMapper.getMemberById(id);
     }
+    // register
+
+    public int registerMember(MemberEntity member){
+        return memberMapper.registerMember(member);
+    }
 
 }
