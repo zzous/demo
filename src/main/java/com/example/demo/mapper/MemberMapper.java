@@ -10,4 +10,7 @@ public interface MemberMapper {
 
     // register
     int registerMember(MemberEntity member);
+
+    // member list
+    MemberEntity[] getMemberList();
 }

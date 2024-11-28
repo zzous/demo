@@ -5,6 +5,8 @@ import com.example.demo.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MemberService {
 
@@ -14,9 +16,11 @@ public class MemberService {
         return memberMapper.getMemberById(id);
     }
     // register
-
     public int registerMember(MemberEntity member){
         return memberMapper.registerMember(member);
     }
-
+    // member list
+    public List<MemberEntity> getMemberList() {
+        return List.of(memberMapper.getMemberList());
+    }
 }

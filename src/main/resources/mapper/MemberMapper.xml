@@ -8,4 +8,8 @@
         insert into member(name, password, email, phone, address, city, state, zipcode, dateOfBirth, gender, occupation, maritalStatus, education)
             values (#{name}, #{password}, #{email}, #{phone}, #{address}, #{city}, #{state}, #{zipcode}, #{dateOfBirth}, #{gender}, #{occupation}, #{maritalStatus}, #{education})
     </insert>
+    <!--member list -->
+    <select id="getMemberList" resultType="com.example.demo.entity.MemberEntity">
+        SELECT * FROM member
+    </select>
 </mapper>
