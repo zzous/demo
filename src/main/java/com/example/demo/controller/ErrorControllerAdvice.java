@@ -19,7 +19,7 @@ public class ErrorControllerAdvice {
     protected ResponseDto<Object> handleBadRequestException(BadRequestException ex) {
         int code = HttpStatus.BAD_REQUEST.value();
         return ResponseDto.of(
-                String.valueOf(code)
+                code
                 , ResultCodeEnum.getEnum(code).getMessage()
                 , null);
     }
@@ -29,7 +29,7 @@ public class ErrorControllerAdvice {
     protected ResponseDto<Object> handleMethodNotAllowedException(MethodNotAllowedException ex) {
         int code = HttpStatus.METHOD_NOT_ALLOWED.value();
         return ResponseDto.of(
-                String.valueOf(code)
+                code
                 , ResultCodeEnum.getEnum(code).getMessage()
                 , null);
     }
@@ -38,7 +38,7 @@ public class ErrorControllerAdvice {
     protected ResponseDto<Object> handleGeneralException(GeneralException ex) {
         int code = ex.getResultCode().getCode();
         return ResponseDto.of(
-                String.valueOf(code)
+                code
                 , ex.getResultCode().getMessage()
                 , null);
     }
@@ -48,7 +48,7 @@ public class ErrorControllerAdvice {
     protected ResponseDto<Object> handleNotFoundException(NotFoundException ex) {
         int code = HttpStatus.NOT_FOUND.value();
         return ResponseDto.of(
-                String.valueOf(code)
+                code
                 , ResultCodeEnum.getEnum(code).getMessage()
                 , null);
     }

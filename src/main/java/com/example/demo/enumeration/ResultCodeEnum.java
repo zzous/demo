@@ -8,7 +8,9 @@ public enum ResultCodeEnum {
     UnauthorizedFAILED(401, "Unauthorized"),
     ForbiddenFAILED(403, "Forbidden"),
     MethodNotAllowedFAILED(405, "Method Not Allowed"),
-    MemberNotFound(40001, "Member Not Found");
+    MemberNotFound(40001, "Member Not Found"),
+    LoginFAILED(40002, "Member Login Failed");
+
 
     private int code;
     private String message;
@@ -18,9 +20,7 @@ public enum ResultCodeEnum {
         this.message = message;
     }
 
-    public int getCode() {
-        return code;
-    }
+    public int getCode() { return code; }
 
     public String getMessage() {
         return message;

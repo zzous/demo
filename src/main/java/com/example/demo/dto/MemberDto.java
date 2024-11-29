@@ -88,6 +88,12 @@ public class MemberDto {
     }
 
     @Getter
+    public static class MemberLoginRequestDto {
+        private int id;
+        private String password;
+    }
+
+    @Getter
     public static class MemberRequestDto {
         private int id;
         private String name;

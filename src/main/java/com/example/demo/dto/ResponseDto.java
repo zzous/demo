@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @RequiredArgsConstructor(staticName = "of")
 public class ResponseDto<T> {
-    private final String resultCode;
+    private final int resultCode;
     private final String resultMessage;
     private final T data;
 }
