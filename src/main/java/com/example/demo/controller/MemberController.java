@@ -11,6 +11,7 @@ import com.example.demo.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -73,4 +74,28 @@ public class MemberController {
                         .build());
     }
 
+    @PostMapping("/member/update")
+    public ResponseDto<MemberDto> updateMember(@RequestBody MemberDto.MemberRequestDto req) {
+        // 요청 데이터를 사용하여 회원 정보를 수정
+        int id = memberService.updateMember(MemberDto.toEntity(req));
+        MemberDto dto = MemberDto.of(memberService.getMemberById(id));
+        // 성공 응답 생성
+        return ResponseDto.of(
+                ResultCodeEnum.getEnum(200).getCode(), // 성공 코드
+                ResultCodeEnum.getEnum(200).getMessage(),
+                dto
+        );
+    }
+
+    @DeleteMapping("/member/delete/{userId}")
+    public ResponseDto<String> deleteMember(@RequestBody MemberDto.MemberRequestDto req) {
+        // 요청 데이터를 사용하여 회원 정보를 삭제
+        memberService.deleteMember(req.getId());
+        // 성공 응답 생성
+        return ResponseDto.of(
+                ResultCodeEnum.getEnum(200).getCode(), // 성공 코드
+                ResultCodeEnum.getEnum(200).getMessage(),
+                "회원 삭제 완료"
+        );
+    }
 }

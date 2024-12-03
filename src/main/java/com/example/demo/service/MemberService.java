@@ -19,6 +19,14 @@ public class MemberService {
     public int registerMember(MemberEntity member){
         return memberMapper.registerMember(member);
     }
+    // update
+    public int updateMember(MemberEntity member){
+        return memberMapper.updateMember(member);
+    }
+    // delete
+    public int deleteMember(int id) {
+        return memberMapper.deleteMember(id);
+    }
     // member list
     public List<MemberEntity> getMemberList() {
         return List.of(memberMapper.getMemberList());

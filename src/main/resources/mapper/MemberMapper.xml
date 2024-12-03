@@ -4,10 +4,19 @@
     <select id="getMemberById" resultType="com.example.demo.entity.MemberEntity" parameterType="int">
         SELECT * FROM member WHERE id = #{id}
     </select>
+    <!-- register member -->
     <insert id="registerMember" useGeneratedKeys="true" keyProperty="id" parameterType="com.example.demo.entity.MemberEntity">
         insert into member(name, password, email, phone, address, city, state, zipcode, dateOfBirth, gender, occupation, maritalStatus, education)
             values (#{name}, #{password}, #{email}, #{phone}, #{address}, #{city}, #{state}, #{zipcode}, #{dateOfBirth}, #{gender}, #{occupation}, #{maritalStatus}, #{education})
     </insert>
+    <!-- update member -->
+    <update id="updateMember" parameterType="com.example.demo.entity.MemberEntity">
+        update member set name = #{name}, password = #{password}, email = #{email}, phone = #{phone}, address = #{address}, city = #{city}, state = #{state}, zipcode = #{zipcode}, dateOfBirth = #{dateOfBirth}, gender = #{gender}, occupation = #{occupation}, maritalStatus = #{maritalStatus}, education = #{education} where id = #{id}
+    </update>
+    <!-- delete member -->
+    <delete id="deleteMember" parameterType="int">
+        delete from member where id = #{id}
+    </delete>
     <!--member list -->
     <select id="getMemberList" resultType="com.example.demo.entity.MemberEntity">
         SELECT * FROM member

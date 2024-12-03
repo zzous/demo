@@ -10,6 +10,10 @@ public interface MemberMapper {
 
     // register
     int registerMember(MemberEntity member);
+    // update member info
+    int updateMember(MemberEntity member);
+    // delete member
+    int deleteMember(int id);
 
     // member list
     MemberEntity[] getMemberList();
