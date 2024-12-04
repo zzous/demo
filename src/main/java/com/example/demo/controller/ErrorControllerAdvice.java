@@ -19,8 +19,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class ErrorControllerAdvice extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(Exception.class) // catch all exceptions (Exception)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // 500 Internal Server Error
     public ErrorResponseDto handleUncaughtException(Exception ex, WebRequest request) {
         int code = HttpStatus.INTERNAL_SERVER_ERROR.value();
         return ErrorResponseDto.of(
@@ -30,7 +30,7 @@ public class ErrorControllerAdvice extends ResponseEntityExceptionHandler {
     }
 
 
-    @ExceptionHandler(GeneralException.class)
+    @ExceptionHandler(GeneralException.class) // catch all exceptions (GeneralException)
     public ErrorResponseDto<Object> handleGeneralException(GeneralException ex) {
         int code = ex.getResultCode().getCode();
         return ErrorResponseDto.of(

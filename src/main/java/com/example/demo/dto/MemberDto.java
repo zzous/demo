@@ -26,7 +26,7 @@ public class MemberDto {
     private String maritalStatus;
     private String education;
 
-    @Builder
+    @Builder // Lombok - Builder annotation to generate constructor, getters, setters, and builder methods
     public MemberDto(int id, String name, String password, String email, String phone, String address, String city, String state, String zipcode, String dateOfBirth, String gender, String occupation, String maritalStatus, String education) {
         this.id = id;
         this.name = name;
